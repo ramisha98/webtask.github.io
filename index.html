@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>full page border</title>
+
+    <style>
+        /* General Rewiew */
+        * {
+            border: none;
+            outline: none;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .real-hospital-navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000000;
+            padding: 0;
+            color: white;
+            top: 0;
+            z-index: 1000;
+            font-family: Arial, Helvetica, sans-serif;
+            width: 100%;
+            left: 0;
+            position: fixed;
+            height: 170px;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-logo {
+            width: 170px;
+            height: auto;
+            margin-right: 15px;
+        }
+
+        .navbar-link {
+            color: rgb(255, 236, 236);
+            text-decoration: none;
+            margin-right: 50px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .navbar-link:hover {
+            text-decoration: underline;
+        }
+
+        .navbar-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-search {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            margin-right: 30px;
+            border-radius: 50px;
+            border: 2px solid #ddd;
+            width: auto;
+            height: auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 30px;
+            background: #fff;
+            transition: all 0.3 ease;
+
+        }
+
+        .navbar-search:hover {
+            box-shadow: 0 4px 12px rgba(0, 123, 225, 0.2);
+            border-color: #007Bff;
+        }
+
+        .navbar-search input {
+            flex: 1;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            outline: none;
+            background: transparent;
+        }
+
+        .navbar-search-button {
+            margin-right: 5px;
+
+        }
+
+        .navbar-join-btn .navbar-login-btn {
+            padding: 10px 10px;
+            border: 60px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-right: 300px;
+            color: white;
+        }
+
+        .navbar-join-btn {
+            background-color: rgb(218, 201, 163);
+            color: rgb(0, 0, 0);
+            margin-right: 10px;
+            padding: 15px;
+            border-radius: 50%;
+        }
+
+        .navbar-join-btn:hover {
+            background-color: white;
+            color: #0b3b72;
+        }
+
+
+         .DROPDOWN MENU {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            background-color: black;
+            padding: 0;
+        }
+
+        .navbar {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar li {
+            position: relative;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            padding: 10px 15px;
+            display: block;
+        }
+
+        .navbar a:hover {
+            background-color: black;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: black;
+            list-style: disc;
+            display: none;
+            width: 200px;
+            border-radius: 5px;
+        }
+
+        .dropdown-menu li {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dropdown-menu li a {
+            padding: 10px;
+            display: block;
+            color: white;
+            margin-left: 0;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: #1abc9c;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .shape-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 20px;
+            margin-left: 10px;
+            width: 700px;
+
+            margin: 0 auto;
+        }
+
+        .body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+        }
+
+        .img {
+            max-width: 100%;
+
+        }
+
+        .gallery {
+            --img-size: 100px;
+            display: grid;
+            grid-template-columns: repeat(6, var(--img-size));
+            grid-template-rows: repeat(3, var(--img-size));
+            grid-column: span 2;
+            gap: .25rem;
+
+            &:has(:hover) img:not(:hover),
+            &:has(:focus) img:not(:focus) {
+                filter: brightness(0.5) contrast(0.5);
+            }
+
+            img {
+                aspect-ratio: 1;
+                object-fit: cover;
+                height: 200px;
+                width: 200px;
+                border-radius: .25rem;
+                grid-column: span 2;
+                clip-path: path('M 80 20 C 100 0 100 0 120 20 C 140 40 160 60 180 80 C 200 100 200 100 180 120 C 160 140 140 160 120 180 C 100 200 100 200 80 180 C 60 160 40 140 20 120 C 0 100 0 100 20 80 Z');
+                transition: clip-path 0.25s, filter 0.75s;
+
+                &:nth-of-type(4) {
+                    grid-column: 2 / span 2;
+                }
+
+                &:hover {
+                    z-index: 100;
+                    clip-path: path('M 0 0 C 100 0 100 0 200 0 C 200 50 200 50 200 80 C 200 100 200 100 200 120 C 200 150 200 150 200 200 C 100 200 100 200 0 200 C 0 150 0 150 0 120 C 0 100 0 100 0 80 Z');
+                }
+
+                &:not(:hover) {
+                    animation: zIndexHack 500ms;
+                }
+
+            }
+        }
+
+        @keyframes zIndexHack {
+
+            0%,
+            100% {
+                z-index: 10;
+            }
+        }
+
+        .bac.imj {
+            width: 1500px;
+            height: 300px;
+        }
+
+        .title-h3 {
+            color: black;
+            font-size: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .image-container {
+            position: relative;
+            width: 100%;
+            max-width: 1680;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 700px;
+            display: block;
+        }
+
+        .text-overlay {
+            position: absolute;
+            top: 50%;
+            left: 35%;
+            color: #fffbfb;
+            font-size: 40px;
+            font-weight: bolder;
+            text-align: center;
+            text-shadow: 10px 10px 20px black;
+        }
+
+        .btn {
+            background-color: rgb(177, 76, 113);
+            color: white;
+            align-items: center;
+            width: 170px;
+            height: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px 0 black;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.1s ease-in-out;
+            outline: none;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .btn :hover {
+            box-shadow: 2px 2px 5px black;
+        }
+
+        .btn:active {
+            transform: translate(4px);
+            box-shadow: 1px 1px 3px black;
+        }
+
+        .image-bac {
+            position: relative;
+            width: 100%;
+            max-width: 1680;
+        }
+
+        .image-bac img {
+            width: 100%;
+            height: 200px;
+            margin-top: 190px;
+        }
+
+        .new-box-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 20px;
+            margin-left: 10px;
+            margin: 0 auto;
+            margin-top: 5px;
+        }
+
+        .new-box {
+            width: 200px;
+            height: 150px;
+            border: solid rgb(255, 255, 255);
+            margin: 10px;
+            gap: 5px;
+            flex-direction: column;
+            flex-wrap: wrap;
+            display: flex;
+            align-items: center;
+            border-radius: 10px;
+        }
+
+        .pic-img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .lar-box-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 20px;
+            margin-left: 10px;
+            margin: 0 auto;
+            margin-top: 5px;
+            border: 2px solid rgb(163, 154, 105);
+            height: 600px;
+            background-color: rgb(163, 154, 105);
+        }
+
+        .lar-box {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            height: 500px;
+            border-radius: 30px;
+        }
+
+        .lar-box img {
+            width: 100%;
+            height: 500px;
+            border-radius: 30px;
+        }
+
+        .write {
+            position: absolute;
+            color: #fffbfb;
+            font-size: 70px;
+            font-weight: bolder;
+            margin-left: 1100px;
+            font-family: 'Qoutes script', serif;
+        }
+
+        .smart-box-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-top: 5px;
+            height: 600px;
+            gap: 30px;
+            justify-content: center;
+            background-color: rgb(190, 99, 114);
+            box-shadow: 2px 4px 10px black;
+            margin-top: 100px;
+            width: 1200px;
+            margin-left: 250px;
+            border-radius: 20px;
+        }
+
+        .smart-box {
+            width: 100%;
+            max-width: 200px;
+            height: 400px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 2px 4px 10px black;
+        }
+
+        .smart-box img {
+            width: 180px;
+            height: 200px;
+            margin-left: 10px;
+            margin-top: 20px;
+
+        }
+
+        .card-big-container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: stretch;
+            max-width: 80%;
+            margin: 0 auto;
+            margin-top: 40px;
+        }
+
+        .card-big img {
+            width: 600px;
+            height: 404px;
+            border-radius: 0 10px 10px 0;
+
+        }
+
+        .card-big {
+            position: relative;
+            width: 600px;
+            height: 404px;
+            background: rgb(255, 255, 255);
+            margin: 10px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border: none;
+            margin-top: 5px;
+
+
+        }
+
+        .card-small {
+            position: relative;
+            width: 300px;
+            height: 404px;
+            background: rgb(255, 255, 255);
+            margin: 10px;
+            border: 1px solid white;
+            display: flex;
+            justify-content: center;
+            font-weight: bold;
+            border-left: none;
+            border-radius: 0 10px 10px 0;
+            margin-top: 5px;
+        }
+
+        .card-text {
+            margin-top: 80px;
+            font-size: 25px;
+            margin-left: 30px;
+        }
+
+        .card-p-text {
+            font-size: 15px;
+
+        }
+
+        .card-button {
+            padding: 10px 20px;
+            background-color: #d69c09;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 250px;
+            height: 25px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .card-button:hover {
+            background-color: #ddca4b;
+        }
+    </style>
+</head>
+
+<body style="background: rgb(255, 255, 255)">
+    <!-- Navbar code goes here -->
+    <nav class="real-hospital-navbar">
+        <div class="navbar-left">
+            <img src="/Users/apple/Downloads/Mercadhio (2).png" alt="logo" class="navbar-logo">
+            <ul class="navbar">
+                <li class="dropdown">
+                    <a href="#MENU" class="navbar-link">MENU</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/Users/apple/Desktop/wd batch 11 html/breakfast.html/ritz.html">BREAKFAST</a></li>
+                        <li><a
+                                href="/Users/apple/Desktop/wd batch 11 html/breakfast.html/lunch.html/lunch.html">LUNCH</a>
+                        </li>
+                        <li><a
+                                href="/Users/apple/Desktop/wd batch 11 html/breakfast.html/dinner.html/dinner.html">DINNER</a>
+                        </li>
+                        <li><a
+                                href="/Users/apple/Desktop/wd batch 11 html/breakfast.html/snacks.html/snacks.html">SNACKS</a>
+                        </li>
+                        <li><a
+                                href="/Users/apple/Desktop/wd batch 11 html/breakfast.html/dessert.html/dessert.html">DESSERT</a>
+                        </li>
+                        <li><a href="/Users/apple/Desktop/wd batch 11 html/wdbatch11.html">HOME</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="navbar">
+                <li class="dropdown">
+                    <a href="#DEALS" class="navbar-link">DEALS</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/Users/apple/Desktop/wd batch 11 html/breakfast.html/ritz.html">BREAKFAST</a></li>
+                        <li><a
+                                href="/Users/apple/Desktop/wd batch 11 html/breakfast.html/lunch.html/lunch.html">LUNCH</a>
+                        </li>
+                        <li><a
+                                href="/Users/apple/Desktop/wd batch 11 html/breakfast.html/dinner.html/dinner.html">DINNER</a>
+                        </li>
+                        <li><a
+                                href="/Users/apple/Desktop/wd batch 11 html/breakfast.html/snacks.html/snacks.html">SNACKS</a>
+                        </li>
+                        <li><a
+                                href="/Users/apple/Desktop/wd batch 11 html/breakfast.html/dessert.html/dessert.html">DESSERT</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+
+            <ul class="navbar">
+                <li class="dropdown">
+                    <a href="#POPULAR" class="navbar-link">POPULAR</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/Users/apple/Desktop/wd batch 11 html/breakfast.html/ritz.html">BREAKFAST</a></li>
+                        <li><a
+                                href="/Users/apple/Desktop/wd batch 11 html/breakfast.html/lunch.html/lunch.html">LUNCH</a>
+                        </li>
+                        <li><a
+                                href="/Users/apple/Desktop/wd batch 11 html/breakfast.html/dinner.html/dinner.html">DINNER</a>
+                        </li>
+                        <li><a
+                                href="/Users/apple/Desktop/wd batch 11 html/breakfast.html/snacks.html/snacks.html">SNACKS</a>
+                        </li>
+                        <li><a
+                                href="/Users/apple/Desktop/wd batch 11 html/breakfast.html/dessert.html/dessert.html">DESSERT</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+
+            <ul class="navbar">
+                <li class="dropdown">
+                    <a href="#HEALTHY & DIET" class="navbar-link">HEALTHY & DIET</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/Users/apple/Desktop/wd batch 11 html/breakfast.html/ritz.html">BREAKFAST</a></li>
+                        <li><a
+                                href="/Users/apple/Desktop/wd batch 11 html/breakfast.html/lunch.html/lunch.html">LUNCH</a>
+                        </li>
+                        <li><a
+                                href="/Users/apple/Desktop/wd batch 11 html/breakfast.html/dinner.html/dinner.html">DINNER</a>
+                        </li>
+                        <li><a
+                                href="/Users/apple/Desktop/wd batch 11 html/breakfast.html/snacks.html/snacks.html">SNACKS</a>
+                        </li>
+                        <li><a
+                                href="/Users/apple/Desktop/wd batch 11 html/breakfast.html/dessert.html/dessert.html">DESSERT</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+
+            <ul class="navbar">
+                <li class="dropdown">
+                    <a href="#SEASONAL" class="navbar-link">SEASONAL</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/Users/apple/Desktop/wd batch 11 html/breakfast.html/ritz.html">BREAKFAST</a></li>
+                        <li><a
+                                href="/Users/apple/Desktop/wd batch 11 html/breakfast.html/lunch.html/lunch.html">LUNCH</a>
+                        </li>
+                        <li><a
+                                href="/Users/apple/Desktop/wd batch 11 html/breakfast.html/dinner.html/dinner.html">DINNER</a>
+                        </li>
+                        <li><a
+                                href="/Users/apple/Desktop/wd batch 11 html/breakfast.html/snacks.html/snacks.html">SNACKS</a>
+                        </li>
+                        <li><a
+                                href="/Users/apple/Desktop/wd batch 11 html/breakfast.html/dessert.html/dessert.html">DESSERT</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="navbar-search">
+            <input type="text" placeholder="IAM CRAVING..." name="search">
+            <button class="navbar-search-button">
+                <button type="submit"></button>
+                <i class="fas fa-search">🔍</i> Search
+            </button>
+        </div>
+    </nav>
+    <hr>
+    </div>
+    <div class="image-container">
+        <img style="margin-top: 30px;" src="/Users/apple/Downloads/Swirled Pink Dessert Texture.jpeg">
+        <div class="text-overlay">LET'S MIX UP SOME <br>MAGIC!
+            <br><button class="btn">LATEST RECIPIES</button>
+        </div>
+    </div>
+
+
+    <h3 style="color:rgb(31, 4, 4); font-size: 100px; text-align: center; font-weight: bold; text-transform: uppercase; margin-top: 100px; margin-left: 70px;
+         font-family: 'Anai MN', serif; position: sticky;">SUGAR <span
+            style="color: #b16085; font-family: 'Anai MN', serif;">RUSH </span>DESSERTS</h3>
+
+    <div class="shape-container" style="border: 2px solid rgb(255, 255, 255); margin-top: 5px; margin-left: 500px;">
+        <article class="gallery">
+            <img
+                src="https://images.unsplash.com/photo-1714678790269-48e9a87cab13?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGVzc2VydCUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D">
+            <img
+                src="https://images.unsplash.com/photo-1739537928606-d03b49ffa815?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTAyfHxkZXNzZXJ0JTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D">
+            <img
+                src="https://images.unsplash.com/photo-1486428128344-5413e434ad35?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGRlc3NlcnQlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fHww">
+            <img
+                src="https://plus.unsplash.com/premium_photo-1695927469352-8d8b1447748c?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODF8fG1pbGtzaGFrZSUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D">
+            <img
+                src="https://images.unsplash.com/photo-1654178990976-b88c403b3257?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDE5fHxkZXNzZXJ0JTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D">
+            <img
+                src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njh8fGNob2NvbGF0ZSUyMHN0cmF3YmVyaWVzfGVufDB8fDB8fHww">
+            <img
+                src="https://plus.unsplash.com/premium_photo-1701290550345-05d03f656ec0?w900&autoformat&fitcrop&q60&ixlibrb-4.0.3&ixidM3wxMjA3fDB8MHxzZWFyY2h8ODIxfHxkZXNzZXJ0JTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D">
+            <img
+                src="https://plus.unsplash.com/premium_photo-1716309257738-f9455c103c38?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjgxfHxkZXNzZXJ0JTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D">
+        </article>
+    </div>
+    <div class="image-bac">
+        <img src="/Users/apple/Downloads/Untitled design - 2025-03-20T100159.010.png">
+        <div style="color: black; text-shadow: none; text-align: center; margin-left: 65px; margin-top: 50px;"
+            class="text-overlay">HEAVENLY BITES
+            <p style="font-size: 15px;">LET, THE FLAVOURS MELT YOUR WORRIES AWAY!!</p>
+        </div>
+    </div>
+    <h3 style="text-align: center; font-weight: bold; font-size: 40px;">COOKIES</h3>
+    <div class="new-box-container" style="border: 4px solid rgb(255, 255, 255); margin-left: 30px;">
+
+
+        <div class="new-box">
+            <div class="pic-img">
+                <img style="border-radius: 10px;"
+                    src="/Users/apple/Downloads/Untitled design - 2025-03-21T171442.354.png">
+            </div>
+        </div>
+
+        <div class="new-box">
+            <div class="pic-img">
+                <img style="border-radius: 10px;"
+                    src="/Users/apple/Downloads/Untitled design - 2025-03-21T170040.119.png">
+            </div>
+        </div>
+
+        <div class="new-box">
+            <div class="pic-img">
+                <img style="border-radius: 10px;"
+                    src="/Users/apple/Downloads/Untitled design - 2025-03-21T171922.656.png">
+            </div>
+        </div>
+
+        <div class="new-box">
+            <div class="pic-img">
+                <img style="border-radius: 10px;"
+                    src="/Users/apple/Downloads/Untitled design - 2025-03-21T172606.307.png">
+            </div>
+        </div>
+
+        <div class="new-box">
+            <div class="pic-img">
+                <img style="border-radius: 10px;"
+                    src="/Users/apple/Downloads/Untitled design - 2025-03-21T172950.088.png">
+            </div>
+        </div>
+
+        <div class="new-box">
+            <div class="pic-img">
+                <img style="border-radius: 10px;"
+                    src="/Users/apple/Downloads/Untitled design - 2025-03-21T173653.578.png">
+            </div>
+        </div>
+
+        <div class="new-box">
+            <div class="pic-img">
+                <img style="border-radius: 10px;"
+                    src="/Users/apple/Downloads/Untitled design - 2025-03-21T174129.605.png">
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <div class="lar-box-container">
+        <div class="lar-box">
+            <img src="/Users/apple/Downloads/Kneading Dough Close-Up.jpeg">
+        </div>
+        <div class="write">
+            BAKING TIME
+        </div>
+    </div>
+
+    <h3 style="text-align: center; font-weight: bold; font-size: 40px;">DONUTS</h3>
+    <div class="new-box-container" style="border: 4px solid rgb(255, 255, 255); margin-left: 30px;">
+
+
+        <div class="new-box">
+            <div class="pic-img">
+                <img style="border-radius: 10px;"
+                    src="/Users/apple/Downloads/Untitled design - 2025-03-22T120358.605.png">
+            </div>
+        </div>
+
+        <div class="new-box">
+            <div class="pic-img">
+                <img style="border-radius: 10px;"
+                    src="/Users/apple/Downloads/Untitled design - 2025-03-22T120614.279.png">
+            </div>
+        </div>
+
+        <div class="new-box">
+            <div class="pic-img">
+                <img style="border-radius: 10px;"
+                    src="/Users/apple/Downloads/Untitled design - 2025-03-22T120701.884.png">
+            </div>
+        </div>
+
+        <div class="new-box">
+            <div class="pic-img">
+                <img style="border-radius: 10px;"
+                    src="/Users/apple/Downloads/Untitled design - 2025-03-22T120959.791.png">
+            </div>
+        </div>
+
+        <div class="new-box">
+            <div class="pic-img">
+                <img style="border-radius: 10px;"
+                    src="/Users/apple/Downloads/Untitled design - 2025-03-22T121054.393.png">
+            </div>
+        </div>
+
+        <div class="new-box">
+            <div class="pic-img">
+                <img style="border-radius: 10px;"
+                    src="/Users/apple/Downloads/Untitled design - 2025-03-22T121522.423.png">
+            </div>
+        </div>
+
+        <div class="new-box">
+            <div class="pic-img">
+                <img style="border-radius: 10px;"
+                    src="/Users/apple/Downloads/Untitled design - 2025-03-22T121624.604.png">
+            </div>
+        </div>
+    </div>
+    </div>
+    <h3 style="text-align: center; font-weight: bold; font-size: 40px;">REFRESHMENTS</h3>
+    <div class="smart-box-container">
+        <div class="smart-box">
+            <img src="/Users/apple/Downloads/Caramel Drizzle Soft-Serve Supreme.jpeg">
+            <h2 style="font-family: 'didot', serif; font-size: 20px; text-align: center;">REFRESHMENT</h2>
+            <p style="text-align: center;">ENJOY OUR <br>SPECIAL <br>REFRESHMENTS</p>
+        </div>
+
+        <div class="smart-box">
+            <img src="/Users/apple/Downloads/Layered Chocolate Dessert with Raspberry.jpeg">
+            <h2 style="font-family: 'didot', serif; font-size: 20px; text-align: center;">REFRESHMENT</h2>
+            <p style="text-align: center;">ENJOY OUR <br>SPECIAL <br>REFRESHMENTS</p>
+        </div>
+
+        <div class="smart-box">
+            <img src="/Users/apple/Downloads/Elegant Red-Pink Sorbet Dessert.jpeg">
+            <h2 style="font-family: 'didot', serif; font-size: 20px; text-align: center;">REFRESHMENT</h2>
+            <p style="text-align: center;">ENJOY OUR <br>SPECIAL <br>REFRESHMENTS</p>
+        </div>
+
+    </div>
+
+    <h3 style="text-align: center; font-weight: bold; font-size: 40px;">CAKES</h3>
+    <div class="new-box-container" style="border: 4px solid rgb(255, 255, 255); margin-left: 30px;">
+
+
+        <div class="new-box">
+            <div class="pic-img">
+                <img style="border-radius: 10px;"
+                    src="/Users/apple/Downloads/Untitled design - 2025-03-24T150805.954.png">
+            </div>
+        </div>
+
+        <div class="new-box">
+            <div class="pic-img">
+                <img style="border-radius: 10px;"
+                    src="/Users/apple/Downloads/Untitled design - 2025-03-24T151638.283.png">
+            </div>
+        </div>
+
+        <div class="new-box">
+            <div class="pic-img">
+                <img style="border-radius: 10px;"
+                    src="/Users/apple/Downloads/Untitled design - 2025-03-24T151817.886.png">
+            </div>
+        </div>
+
+        <div class="new-box">
+            <div class="pic-img">
+                <img style="border-radius: 10px;"
+                    src="/Users/apple/Downloads/Untitled design - 2025-03-24T151004.357.png">
+            </div>
+        </div>
+
+        <div class="new-box">
+            <div class="pic-img">
+                <img style="border-radius: 10px;"
+                    src="/Users/apple/Downloads/Untitled design - 2025-03-24T151040.179.png">
+            </div>
+        </div>
+
+        <div class="new-box">
+            <div class="pic-img">
+                <img style="border-radius: 10px;"
+                    src="/Users/apple/Downloads/Untitled design - 2025-03-24T151120.650.png">
+            </div>
+        </div>
+
+        <div class="new-box">
+            <div class="pic-img">
+                <img style="border-radius: 10px;"
+                    src="/Users/apple/Downloads/Untitled design - 2025-03-24T151426.182.png">
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <div class="card-big-container"
+        style="border: 4px solid rgb(255, 255, 255); margin-top: 150px; margin-left: 450px;">
+
+        <div class="card-big">
+            <div class="card-big img">
+                <img src="/Users/apple/Downloads/Untitled design - 2025-03-25T130135.309.png" alt="image">
+                <div class="card-big-overlay">
+
+                </div>
+            </div>
+        </div>
+        <div class="card-small">
+            <div class="card-text">
+                <h1>SERVING SWEETNESS</h1>
+                <div class="card-button">ORDER NOW</div>
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+</body>
